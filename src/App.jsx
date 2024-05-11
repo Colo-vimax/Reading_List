@@ -1,5 +1,5 @@
-import React from 'react'
 
+import {Routes,Route} from "react-router-dom";
 
 // components
 import Home from './pages/Home'
@@ -11,9 +11,11 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Home />
-      <Signup />
-      <Login />
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/signup" element={<Signup />}></Route>
+      </Routes>    
     </div>
   )
 }
