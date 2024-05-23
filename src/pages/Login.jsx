@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
+import useLogin from '../hooks/useLogin'
+
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const{ error, login } = useLogin()
   
   const handleForm = (e) => {
     e.preventDefault()
 
-    console.log(email, password);
+    login(email, password);
 
   }
-
   return (
     <div>
       <form onSubmit={handleForm}>
@@ -33,6 +35,7 @@ const Login = () => {
             />
           </label>
           <button>log in</button>
+          { error && <p>{error}</p> }
       </form>
     </div>
   )
