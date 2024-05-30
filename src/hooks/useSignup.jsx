@@ -11,7 +11,7 @@ const useSignup = () => {
   const { dispatch } = useAuthContext()
 
 //   sign user
-  const signup = (email, password) => {
+  const signup = async(email, password) => {
     setError(null)
     createUserWithEmailAndPassword(auth, email, password)
     .then((res) => {
@@ -19,7 +19,7 @@ const useSignup = () => {
         // const user = userCredential.user;
         // // ...
         console.log('user signed up:', res.user);
-        dispatch({ type:LOGIN, payload: res.user})
+        dispatch({ type:'LOGIN', payload: res.user})
         
       })
 

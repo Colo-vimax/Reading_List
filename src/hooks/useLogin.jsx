@@ -10,14 +10,14 @@ const useLogin = () => {
     const { dispatch } = useAuthContext()
 
     // login user
-    const login = (email, password) => {
+    const login = async(email, password) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((res) => {
             // // Signed in 
             // const user = userCredential.user;
             // // ...
           
-            dispatch({ type:LOGIN, payload:res.user })
+            dispatch({ type:'LOGIN', payload:res.user })
             console.log("user signin:", res.user);
         })
         .catch((err) => {
